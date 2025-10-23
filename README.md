@@ -1,5 +1,7 @@
 # Resume - Lee JiYeol
 
+👉 **[배포된 이력서 보기](https://dlwodud1016.github.io/resume)**
+
 A modern, clean and responsive resume website built with Next.js and Tailwind CSS.
 
 ## Features
