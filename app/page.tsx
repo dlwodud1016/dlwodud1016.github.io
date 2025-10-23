@@ -22,10 +22,14 @@ export default function Home() {
                     {/* Main Content */}
                     <div className="lg:col-span-3 space-y-12">
                         <IntroduceSection />
+                        <div className="border-t-2 border-gray-200 pt-12" />
                         <ExperienceSection />
-                        <EducationSection />
-                        <SkillSection />
+                        <div className="border-t-2 border-gray-200 pt-12" />
                         <ProjectSection />
+                        <div className="border-t-2 border-gray-200 pt-12" />
+                        <SkillSection />
+                        <div className="border-t-2 border-gray-200 pt-12" />
+                        <EducationSection />
                     </div>
                 </div>
             </div>
