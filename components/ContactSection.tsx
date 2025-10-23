@@ -1,9 +1,11 @@
 import { Mail, Phone, MapPin, GitBranch, Briefcase } from 'lucide-react';
 
 export default function ContactSection() {
+  const isDev = process.env.NODE_ENV === 'development';
+
   const contacts = [
     { icon: Mail, label: 'Email', value: 'jylee@example.com', href: 'mailto:jylee@example.com' },
-    { icon: Phone, label: 'Phone', value: '+82-10-1234-5678', href: 'tel:+82101234567' },
+    ...(isDev ? [{ icon: Phone, label: 'Phone', value: '+82-10-1234-5678', href: 'tel:+82101234567' }] : []),
     { icon: MapPin, label: 'Location', value: 'Seoul, South Korea', href: '#' },
     { icon: GitBranch, label: 'GitHub', value: 'github.com/jylee', href: 'https://github.com' },
     { icon: Briefcase, label: 'LinkedIn', value: 'linkedin.com/in/jylee', href: 'https://linkedin.com' },
