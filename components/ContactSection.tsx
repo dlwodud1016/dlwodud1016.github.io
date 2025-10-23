@@ -2,14 +2,23 @@ import { Mail, Phone, MapPin, GitBranch, Briefcase } from 'lucide-react';
 
 const SHOW_PHONE = process.env.NEXT_PUBLIC_SHOW_PHONE === 'true';
 
-export default function ContactSection() {
-  const contacts = [
+const getContacts = () => {
+  const baseContacts = [
     { icon: Mail, label: 'Email', value: 'jylee@example.com', href: 'mailto:jylee@example.com' },
-    ...(SHOW_PHONE ? [{ icon: Phone, label: 'Phone', value: '+82-10-1234-5678', href: 'tel:+82101234567' }] : []),
     { icon: MapPin, label: 'Location', value: 'Seoul, South Korea', href: '#' },
     { icon: GitBranch, label: 'GitHub', value: 'github.com/jylee', href: 'https://github.com' },
     { icon: Briefcase, label: 'LinkedIn', value: 'linkedin.com/in/jylee', href: 'https://linkedin.com' },
   ];
+
+  if (SHOW_PHONE) {
+    baseContacts.splice(1, 0, { icon: Phone, label: 'Phone', value: '+82-10-1234-5678', href: 'tel:+82101234567' });
+  }
+
+  return baseContacts;
+};
+
+export default function ContactSection() {
+  const contacts = getContacts();
 
   return (
     <section id="contact" className="mb-16">
