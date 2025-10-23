@@ -1,11 +1,22 @@
 import { Mail, Phone, MapPin, GitBranch, Briefcase, Globe, Code2 } from 'lucide-react';
 
-export default function SideBar() {
-  const contacts = [
+const SHOW_PHONE = process.env.NEXT_PUBLIC_SHOW_PHONE === 'true';
+
+const getContacts = () => {
+  const baseContacts = [
     { icon: Mail, label: 'dlwodud1016@gmail.com', href: 'mailto:dlwodud1016@gmail.com', type: 'email' },
-    { icon: Phone, label: '010-3222-1508', href: 'tel:010-3222-1508', type: 'phone' },
     { icon: MapPin, label: 'Asia/Seoul', href: '#', type: 'location' },
   ];
+
+  if (SHOW_PHONE) {
+    baseContacts.splice(1, 0, { icon: Phone, label: '010-3222-1508', href: 'tel:010-3222-1508', type: 'phone' });
+  }
+
+  return baseContacts;
+};
+
+export default function SideBar() {
+  const contacts = getContacts();
 
   const socials = [
     { icon: Globe, label: 'Blog', href: 'https://blog.example.com', name: 'blog.example.com' },
